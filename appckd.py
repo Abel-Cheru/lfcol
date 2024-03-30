@@ -22,7 +22,7 @@ y = df['stages']
 scaler.fit(x)
 standardized_data = scaler.transform(x)
 
-ckd_model = load_model('1d_CNNLSTM_98.keras')
+ckd_model = load_model('1d_CNNLSTM_98..keras')
 with st.sidebar:
     selected = option_menu('CKD Prediction by Using DL',
                     ['Home','CKD Prediction', 'eGFR','About CKD'],
