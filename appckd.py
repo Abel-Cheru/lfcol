@@ -14,7 +14,7 @@ from sklearn.preprocessing import StandardScaler
 from tensorflow.keras.models import load_model
 
 scaler = StandardScaler()
-df = pd.read_csv('C:/Users/kabbe/Desktop/Hibuna/ckd new model/ckd_Encoded_data.csv')
+df = pd.read_csv('ckd_Encoded_data.csv')
 scaler = StandardScaler()
 
 x = df.drop(columns='stages', axis=1)
@@ -22,11 +22,10 @@ y = df['stages']
 scaler.fit(x)
 standardized_data = scaler.transform(x)
 
-ckd_model = load_model("C:/Users/kabbe/Desktop/Hibuna/ckd new model/1d_CNNLSTM_98.keras")
-#pickle.load(open('C:/Users/kabbe/Desktop/DiabStreamlit/diabetes_model.sav','rb'))
+ckd_model = load_model('1d_CNNLSTM_98.keras')
 with st.sidebar:
     selected = option_menu('CKD Prediction by Using DL',
-                    ['CKD Prediction', 'eGFR','About CKD','Home'],
+                    ['Home','CKD Prediction', 'eGFR','About CKD'],
                     default_index = 0)
     
 if (selected == 'CKD Prediction' ):
@@ -92,3 +91,7 @@ if (selected == 'eGFR' ):
         #gfr = None
         eGFR_result = gfr
     st.success(eGFR_result)
+
+if (selected == 'About CKD' ):
+    
+    st.title('Information about CKD')
